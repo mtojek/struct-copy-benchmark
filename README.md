@@ -1,5 +1,5 @@
 # struct-copy-benchmark
-Benchmark comparing different ways of copying structures
+Benchmark comparing various ways of copying structures
 
 **Results**:
 
