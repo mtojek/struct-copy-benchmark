@@ -25,7 +25,7 @@ func TestDog_Copy_Equal(t *testing.T) {
 	result := dog.Copy()
 
 	// then
-	assert.Equal(t, dog, result)
+	assert.Equal(t, *dog, *result)
 }
 
 func TestDog_Copy_NotEqual(t *testing.T) {
@@ -48,7 +48,7 @@ func TestDog_Copy_NotEqual(t *testing.T) {
 	dog.brain["play"] = "running"
 
 	// then
-	assert.NotEqual(t, dog, result)
+	assert.NotEqual(t, *dog, *result)
 }
 
 func BenchmarkDog_Copy_CopyMethod(b *testing.B) {
@@ -87,6 +87,6 @@ func BenchmarkDog_Copy_WithCopier(b *testing.B) {
 
 	for n := 0; n < b.N; n++ {
 		dest := &Dog{}
-		copier.Copy(dog, dest)
+		copier.Copy(dest, dog)
 	}
 }
